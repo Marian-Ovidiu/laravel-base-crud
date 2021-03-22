@@ -18,7 +18,6 @@ class CreateBeersTable extends Migration
             $table->String('name', 255);
             $table->String('gradazione', 10);
             $table->longText('descrizione');
-            $table->String('cover', 2048);
             $table->timestamps();
         });
     }

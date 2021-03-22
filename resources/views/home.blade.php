@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <script src="{{asset('js/app.js')}}"></script>
         <title>Laravel</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
 
@@ -79,7 +79,7 @@
                 @foreach ($beers as $beer)
               <tr>
                 <th scope="row">{{$beer->id}}</th>
-                <td>{{$beer->name}}</td>
+                <td><a href="{{route('beers.show', ['beer' => $beer -> id])}}">{{$beer->name}}</a></td>
                 <td>{{$beer->gradazione}}</td>
                 <td>{{$beer->descrizione}}</td>
               </tr>
