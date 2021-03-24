@@ -21,27 +21,7 @@
         </div>
     @endif
 
-    <form action="{{route('beers.store')}}" method="post" style="width: 75%; margin: 50px auto;">
-        @csrf
-        @method('POST')
-
-        <div class="form-group">
-            <label for="name">Nome</label>
-            <input class="form-control" type="text" name="name" placeholder="Nome">
-        </div>
-
-        <div class="form-group">
-            <label for="gradazione">Gradazione</label>
-            <input class="form-control" type="text" name="gradazione" placeholder="Gradazione">
-        </div>
-
-        <div class="form-group">
-            <label for="descrizione">Descrizione</label>
-            <input class="form-control" type="text" name="descrizione" placeholder="Descrizione">
-        </div>
-
-        <input type="submit" value="Invia">
-    </form>
+    @include('beers.form', ['edit' => false]);
 
 </body>
 </html>

@@ -92,10 +92,26 @@ class BeerController extends Controller
      */
     public function update(Request $request, Beer $beer)
     {
+
+        $this -> validateForm($request);
+
         $data = $request->all();
         $beer -> update($data);
 
         return redirect()->route('beers.show', compact('beer'));
+    }
+
+
+    protected function validateForm(Request $request){
+
+        $request -> validate([
+
+            'name' => 'required|max:255',
+            'gradazione' => 'required|max:4',
+            'descrizione' => 'required|max:10000',
+
+        ]);
+
     }
 
     /**
