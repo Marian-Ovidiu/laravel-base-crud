@@ -8,9 +8,9 @@
 
 @endphp
 
-@csrf
-@method($method)
-<form action="{{ $url }}" method="post" style="width: 75%; margin: 50px auto;">
+<form action="{{ $url }}" method="{{$method}}" style="width: 75%; margin: 50px auto;">
+    @csrf
+    @method($method)
 
     <div class="form-group">
         <label for="name">Nome</label>
