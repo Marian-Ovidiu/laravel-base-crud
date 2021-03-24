@@ -66,23 +66,28 @@
     <body>
 
 
-        <table class="table table-striped table-dark">
+        <table class="table table-striped table-dark" style="width: 75%; margin: 15px auto;">
             <thead>
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Graduazione alcolica</th>
                 <th scope="col">Descrizione</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
                 @foreach ($beers as $beer)
               <tr>
                 <th scope="row">{{$beer->id}}</th>
-                <td><a href="{{route('beers.show', ['beer' => $beer -> id])}}">{{$beer->name}}</a></td>
+                <td><a href="{{route('beers.show', ['beer' => $beer -> id])}}" style="color:white; text-decoration:none;">{{$beer->name}}</a></td>
                 <td>{{$beer->gradazione}}</td>
                 <td>{{$beer->descrizione}}</td>
-              </tr>
+                <td><a href="{{route('beers.show', ['beer' => $beer -> id])}}"><i class="fa fa-eye"></i></a></td>
+                <td><a href="{{route('beers.edit', ['beer' => $beer -> id])}}"><i class="far fa-edit"></i></a></td>
+                <td><a href="{{route('beers.show', ['beer' => $beer -> id])}}"><i class="fas fa-meteor"></i></a></td>
+
+            </tr>
               @endforeach
             </tbody>
           </table>

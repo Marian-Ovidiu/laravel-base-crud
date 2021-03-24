@@ -75,12 +75,12 @@ class BeerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  Book $beer
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Beer $beer)
     {
-        //
+        return view('beers.edit', compact($beer));
     }
 
     /**
@@ -92,7 +92,10 @@ class BeerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $id -> update();
+
+        return redirect() -> route('beers.show');
     }
 
     /**
