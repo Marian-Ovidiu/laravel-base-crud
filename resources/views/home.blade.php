@@ -83,9 +83,24 @@
                 <td><a href="{{route('beers.show', ['beer' => $beer -> id])}}" style="color:white; text-decoration:none;">{{$beer->name}}</a></td>
                 <td>{{$beer->gradazione}}</td>
                 <td>{{$beer->descrizione}}</td>
-                <td><a href="{{route('beers.show', ['beer' => $beer -> id])}}"><i class="fa fa-eye"></i></a></td>
-                <td><a href="{{route('beers.edit', ['beer' => $beer -> id])}}"><i class="far fa-edit"></i></a></td>
-                <td><a href="{{route('beers.show', ['beer' => $beer -> id])}}"><i class="fas fa-meteor"></i></a></td>
+                <td>
+
+                    <button type="button" class="btn btn-primary">
+                         <a href="{{route('beers.show', ['beer' => $beer -> id])}}" style="color:white"><i class="fa fa-eye"></i></a>
+                    </button>
+
+                     <button type="button" class="btn btn-primary">
+                        <a href="{{route('beers.edit', ['beer' => $beer -> id])}}" style="color:white"><i class="far fa-edit"></i></a>
+                    </button>
+
+                    <form action="{{route('beers.destroy', ['beer' => $beer -> id])}}" method="DELETE">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger">
+                           <i class="fas fa-meteor"></i>
+                        </button>
+                    </form>
+                </td>
 
             </tr>
               @endforeach

@@ -1,15 +1,15 @@
 @php
 
-
     if(isset($edit) && !empty($edit)){
         $method = 'PUT';
         $url = route(('beers.update'), compact('beer'));
     }
 
     else {
-        $method = 'GET';
-        $url = route(('beers.create'));
+        $method = 'POST';
+        $url = route(('beers.store'));
     };
+
 @endphp
 
 <form action="{{ $url }}" method="{{$method}}" style="width: 75%; margin: 50px auto;">

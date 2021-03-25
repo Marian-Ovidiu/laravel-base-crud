@@ -38,13 +38,7 @@ class BeerController extends Controller
      */
     public function store(Request $request)
     {
-        $validateData = $request->validate([
-
-            'name' => 'required|max:255',
-            'gradazione' => 'required|max:4',
-            'descrizione' => 'required|max:10000',
-
-        ]);
+        $this -> validateForm($request);
 
         $data = $request->all();
 
@@ -120,8 +114,13 @@ class BeerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Beer $beer)
     {
-        //
+
+        dd($beer);
+
+        $beer->delete();
+
+        return redirect()->route('beers');
     }
 }
